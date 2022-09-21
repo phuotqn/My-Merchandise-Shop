@@ -3,7 +3,7 @@ import './App.css';
 import PublicRoutes from './app/Routes/PublicRoute';
 import Layout from './layout/Layout';
 import Home from './features/home/Home';
-import ProductInfo from './features/home/components/ProductInfo';
+import ProductInfo from './features/components/ProductInfo';
 import { Switch, Route, Router, Routes } from 'react-router-dom';
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         }
       ></Route>
       <Route
-        path="/products"
+        path="/:productId"
         element={
           <Layout>
             <ProductInfo />
