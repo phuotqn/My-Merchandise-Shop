@@ -2,20 +2,28 @@ import img from '../../assets/images/img_550774.png';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProducts } from './homeSlice';
+import { useNavigate } from 'react-router-dom';
 export default function Home() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { product } = useSelector((state) => state.product);
-  console.log(product);
+  const onDetailClick = (row) => {
+    navigate('/' + row);
+  };
+
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
 
   return (
-    <div className="bg-white  grid grid-cols-4 gap-[20px] mt-[106px] px-[20px] mb-3">
+    <div className="bg-white  grid grid-cols-4 gap-[20px] m-auto mt-[25px] px-[20px] mb-3 w-[90%] h-[100%] cursor-pointer ">
       {product?.data?.map((products, i) => {
         return (
-          <div className="bg-white text-black border-2 border-b-2 border-gray-250  h-[346px]">
-            <div className="w-full bg-white h-[65%] border-b-2  border-gray-250 flex justify-center">
+          <div
+            className=" mt-auto bg-white text-black border-2 border-b-2 border-gray-350  h-[346px] rounded-md    "
+            onClick={() => onDetailClick(products.id)}
+          >
+            <div className="w-full bg-white h-[65%] border-b-2  border-gray-250 flex justify-center duration-300 hover:scale-110 shadow hover:shadow-black rounded-md">
               <img src={products.image} alt="clothes" />
             </div>
             <div className="h-[30%]">

@@ -1,4 +1,3 @@
-import logger from 'redux-logger';
 import instance from './axiosClient';
 
 const productApi = {
