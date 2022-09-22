@@ -6,21 +6,18 @@ import { useEffect, useState } from 'react';
 export default function ProductInfo() {
   const { productId } = useParams();
   const [productInfo, setProductInfo] = useState({});
-  console.log(productId);
+
   useEffect(() => {
     instance
       .get('products/' + productId)
       .then((response) => {
         setProductInfo(response.data);
-        console.log(response.data);
       })
-      .catch((err) => {
-        console.err(err.message);
-      });
+      .catch((err) => {});
   }, []);
 
   return (
-    <div className="bg-white  grid grid-cols-2  mt-[106px] px-[40px] mb-3">
+    <div className="bg-white  grid grid-cols-2  mt-[26px] px-[40px] mb-3">
       <div className="text-center border border-2 border-gray-500  ">
         <img src={productInfo.image} alt="clothes" />
       </div>

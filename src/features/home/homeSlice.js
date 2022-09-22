@@ -9,7 +9,6 @@ export const getAllProducts = createAsyncThunk(
   'products/getAllProducts',
   async () => {
     const response = await productApi.getAll();
-    console.log(response);
     return response;
   }
 );

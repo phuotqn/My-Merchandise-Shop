@@ -8,10 +8,9 @@ export default function Home() {
   const navigate = useNavigate();
   const { product } = useSelector((state) => state.product);
   const onDetailClick = (row) => {
-    console.log(row);
     navigate('/' + row);
   };
-  console.log(product);
+
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
