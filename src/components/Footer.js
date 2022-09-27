@@ -1,7 +1,7 @@
 import img from '../assets/images/img_550774.png';
 export default function Footer() {
   return (
-    <footer className="bg-white text-black border-y-[2px] m-auto border-x-gray-500 w-[1329px] min-w-[1329px]  ">
+    <footer className="bg-white text-black border-y-[2px] m-auto mt-[26px] border-x-gray-500 w-[1329px] min-w-[1329px]  ">
       <div className="grid grid-cols-4  gap-[30px] p-[30px]">
         <img
           src={img}

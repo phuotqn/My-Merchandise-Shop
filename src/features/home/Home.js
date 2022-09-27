@@ -20,11 +20,11 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getAllProducts());
-  }, []);
+  }, [name, categories, product]);
 
   useEffect(() => {
     dispatch(getAllCategories());
-  }, []);
+  }, [name, categories, product]);
   return (
     <div>
       <div className="grid grid-cols-5 w-[1329px] min-w-[1329px] h-[30px] bg-white shadow-lg m-auto mt-[5px] px-[30px] ">
@@ -75,11 +75,14 @@ export default function Home() {
           ?.filter((product) => {
             if (type === 'All' && name === '') {
               return product;
-            } else if (type === 'All' && product.title.includes(name)) {
+            } else if (
+              type === 'All' &&
+              product.title.toLowerCase().includes(name)
+            ) {
               return product;
             } else if (
               product.category.includes(type) &&
-              product.title.includes(name)
+              product.title.toLowerCase().includes(name)
             ) {
               return product;
             }
@@ -87,10 +90,10 @@ export default function Home() {
           ?.map((products, i) => {
             return (
               <div
-                className=" mt-auto bg-white text-black border-2 border-b-2 border-gray-350  h-[346px] rounded-md    "
+                className="mt-auto bg-white text-black border-2 py-0 p-[15px] border-b-2 border-gray-350 h-[346px] rounded-md "
                 onClick={() => onDetailClick(products.id)}
               >
-                <div className="w-full bg-white h-[65%] border-b-2  border-gray-250 flex justify-center duration-300 hover:scale-x-110 hover:scale-y-110 shadow hover:shadow-black rounded-md">
+                <div className="w-full bg-white h-[65%]  border-b-2  border-gray-250 flex justify-center duration-300 hover:scale-x-110 hover:scale-y-110 shadow hover:shadow-black rounded-md">
                   <img src={products.image} alt="clothes" />
                 </div>
                 <div className="h-[30%]">
