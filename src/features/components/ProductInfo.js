@@ -17,7 +17,7 @@ export default function ProductInfo() {
   }, []);
 
   return (
-    <div className="bg-white  grid grid-cols-2  mt-[26px] px-[40px] mb-3">
+    <div className="bg-white  grid grid-cols-2 w-[1329px] min-w-[1329px] m-auto  mt-[26px] px-[40px] mb-3">
       <div className="text-center border border-2 border-gray-500  ">
         <img src={productInfo.image} alt="clothes" />
       </div>
