@@ -9,7 +9,7 @@ export default function Header() {
   console.log(name);
   const dispatch = useDispatch();
   const onInputChage = (e) => {
-    dispatch(setName(e.target.value));
+    dispatch(setName(e.target.value.toLowerCase()));
     console.log(e.target.value);
   };
   return (
@@ -19,7 +19,7 @@ export default function Header() {
           <div className="flex justify-start mx-1 lg:w-0 lg:flex-1">
             <a href="/">
               <img
-                className="h-10 w-[50px] mx-3 sm:h-10 "
+                className="h-10 w-[50px] mx-3 sm:h-10 object-contain "
                 src={clothes}
                 alt=""
               />
