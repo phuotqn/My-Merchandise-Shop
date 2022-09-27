@@ -10,12 +10,14 @@ export const getAllProducts = createAsyncThunk(
   async () => {
     const response = await productApi.getAll();
     return response;
+    console.log(response);
   }
 );
 
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
+
   reducers: {},
   extraReducers: {
     [getAllProducts.pending]: (state, { payload }) => {

@@ -18,7 +18,7 @@ function App() {
         }
       ></Route>
       <Route
-        path="/:productId"
+        path="/products/:productId"
         element={
           <Layout>
             <ProductInfo />
