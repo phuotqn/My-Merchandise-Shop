@@ -20,11 +20,11 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getAllProducts());
-  }, [name, categories, product]);
+  }, [name]);
 
   useEffect(() => {
     dispatch(getAllCategories());
-  }, [name, categories, product]);
+  }, [name]);
   return (
     <div>
       <div className="grid grid-cols-5 w-[1329px] min-w-[1329px] h-[30px] bg-white shadow-lg m-auto mt-[5px] px-[30px] ">
