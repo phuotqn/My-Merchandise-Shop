@@ -47,10 +47,10 @@ export default function Header() {
   };
 
   return (
-    <div className="bg-white w-[1329px] min-w-[1329px] mb-0 m-auto md:flex justify-center items-center">
-      <div className="md:container md:mx-auto py-0">
-        <div className="flex items-center border-b-2 border-gray-250 py-6">
-          <div className="flex justify-start mx-1 lg:w-0 lg:flex-1">
+    <div className="bg-white w-auto items-center flex justify-center xl:bg-white xl:w-[1329px] xl:min-w-[1329px] mb-0 m-auto">
+      <div className="container mx-auto py-0">
+        <div className="flex justify-center items-center border-b-2 border-gray-250 py-6">
+          <div className="flex justify-start mx-1 lg:flex-1">
             <button
               onClick={() => {
                 navigate('/');
@@ -63,15 +63,15 @@ export default function Header() {
               />
             </button>
           </div>
-          <div className="items-center w-[900px]">
+          <div className="justify-center items-center w-[40%] xs:w[50%] md:items-center md:w-[60%] xl:items-center xl:[900px] ">
             <label
               htmlFor="default-search"
               className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
             >
               Search
             </label>
-            <div className="relative">
-              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+            <div className="relative object-fit">
+              <div className="flex inset-y-0 left-0 items-center pl-3 pointer-events-none md:flex absolute md:inset-y-0 md:left-0 md:items-center md:pl-3 md:pointer-events-none">
                 <svg
                   aria-hidden="true"
                   className="w-5 h-5 text-indigo-500 indigo:text-indigo-400 "
@@ -91,16 +91,16 @@ export default function Header() {
               <input
                 type="search"
                 id="default-search"
-                className="block p-4 pl-10 font-bold text-[15px] w-full text-sm text-gray-900 bg-white-50 rounded-lg border  focus:ring-blue-500  white:bg-gray-700 border-indigo-600 placeholder-gray-400 text-black  "
+                className="block p-4 pl-10 font-bold text-[15px] w-full text-sm text-gray-900 bg-white-50 rounded-lg border  focus:ring-blue-500  white:bg-gray-700 border-indigo-600 placeholder-gray-400 text-black "
                 placeholder="Search..."
                 onChange={onInputChage}
               ></input>
             </div>
           </div>
-          <div className="items-center justify-center md:flex py-[5px] md:flex-1 lg:w-0 mr-[5px]">
+          <div className="items-center justify-center flex flex-1 w-0 md:flex py-[5px] md:flex-1 lg:w-0 mr-[5px]">
             <button className="whitespace-nowrap hover:text-gray-900 relative">
               <span className="absolute translate-x-[1px] translate-y-[-10px] py-[-3px] px-[6px] rounded-[30%] bg-red-600 text-white font-bold">
-                0
+                {user ? 0 : null}
               </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -149,10 +149,7 @@ export default function Header() {
                           {({ active }) => (
                             <p
                               href="#"
-                              className={classNames(
-                                active ? 'font-bold' : 'font-bold',
-                                'block px-4 py-2 text-sm'
-                              )}
+                              className="block px-4 py-2 text-sm font-bold"
                             >
                               {user.user.displayName}
                             </p>

@@ -27,7 +27,7 @@ export default function Home() {
   }, [name]);
   return (
     <div>
-      <div className="grid grid-cols-5 w-[1329px] min-w-[1329px] h-[30px] bg-white shadow-lg m-auto mt-[5px] px-[30px] ">
+      <div className="flex justify-center items-center h-auto gap-[5px] flex-wrap shadow-lg sm:flex justify-center sm:items-center sm:h-[30px] sm:gap-[5px] sm:shadow-lg  xl:w-[1329px] xl:min-w-[1329px] xl:h-[30px] xl:grid grid-cols-5  bg-white xl:shadow-lg xl:m-auto xl:mt-[5px] xl:px-[30px]">
         <div className="flex items-center">
           <input
             id="default-radio-1"
@@ -38,7 +38,7 @@ export default function Home() {
             onChange={(event) => {
               setType(event.target.value);
             }}
-            className="w-4 h-4 text-blue-600 bg-gray-100 "
+            className="w-4 h-4 p-1 text-blue-600 bg-gray-100 "
           />
           <label
             for="default-radio-1"
@@ -70,7 +70,7 @@ export default function Home() {
           );
         })}
       </div>
-      <div className="bg-white  grid grid-cols-4 gap-[20px] m-auto mt-[25px] px-[20px] mb-3 w-[90%] h-[100%] cursor-pointer ">
+      <div className="bg-white xl:grid grid-cols-4 gap-[20px] m-auto mt-[25px] px-[20px] mb-3 w-[90%] h-[100%] cursor-pointer ">
         {product?.data
           ?.filter((product) => {
             if (type === 'All' && name === '') {
