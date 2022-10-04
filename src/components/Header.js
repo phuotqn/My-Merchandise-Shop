@@ -11,13 +11,15 @@ import { useState } from 'react';
 // Import Modal Login
 import ModalLogin from '../features/Login/ModalLogin';
 import { useNavigate } from 'react-router-dom';
-
+// Import Modal Cart
+import Cart from '../features/cart/Cart';
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function Header() {
   const navigate = useNavigate();
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const user = useSelector((state) => state.user.user);
   const name = useSelector((state) => state.search.name);
   console.log(name);
@@ -33,6 +35,11 @@ export default function Header() {
   const [openModalLogIn, setOpenModalLogIn] = useState(false);
   const onBtnLogin = () => {
     setOpenModalLogIn(true);
+  };
+  // Open Cart
+  const [openCart, setOpenCart] = useState(false);
+  const onBtnOpenCart = () => {
+    setOpenCart(true);
   };
   // Logout Google
   const logOutGoogle = () => {
@@ -98,9 +105,12 @@ export default function Header() {
             </div>
           </div>
           <div className="items-center justify-center flex flex-1 w-0 md:flex py-[5px] md:flex-1 lg:w-0 mr-[5px]">
-            <button className="whitespace-nowrap hover:text-gray-900 relative">
+            <button
+              onClick={onBtnOpenCart}
+              className="whitespace-nowrap hover:text-gray-900 relative"
+            >
               <span className="absolute translate-x-[1px] translate-y-[-10px] py-[-3px] px-[6px] rounded-[30%] bg-red-600 text-white font-bold">
-                {user ? 0 : null}
+                {cartItems.length}
               </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -193,6 +203,7 @@ export default function Header() {
         openModalLogIn={openModalLogIn}
         setOpenModalLogIn={setOpenModalLogIn}
       />
+      <Cart openCart={openCart} setOpenCart={setOpenCart} />
     </div>
   );
 }
