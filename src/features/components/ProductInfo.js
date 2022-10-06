@@ -1,12 +1,18 @@
 import React from 'react';
 import img from '../../assets/images/img_550774.png';
+import { addToCart } from '../cart/CartSlice';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import instance from '../../services/axiosClient';
 import { useEffect, useState } from 'react';
 export default function ProductInfo() {
+  const dispatch = useDispatch();
   const { productId } = useParams();
   const [productInfo, setProductInfo] = useState({});
-
+  const onAddtoCart = (product) => {
+    dispatch(addToCart(product));
+    console.log(product);
+  };
   useEffect(() => {
     instance
       .get('products/' + productId)
@@ -25,10 +31,10 @@ export default function ProductInfo() {
         <div className="w-full p-[20px]">
           <h1 className="text-2xl font-bold">{productInfo.title}</h1>
           <div className="mt-[32px] flex">
-            <div className="inline-block w-[50px] h-[50px] flex justify-center  border-r-[50px] border-r-green-400 border-y-[25px] border-y-transparent border-b-[25px] border-b-transparent">
+            <div className="inline-block w-[50px] h-[50px] flex justify-center  border-r-[50px] border-r-indigo-400 border-y-[25px] border-y-transparent border-b-[25px] border-b-transparent">
               <p className="bg-white w-[10px]  translate-y-[-5px] translate-x-[35px] absolute h-[10px] rounded-full"></p>
             </div>
-            <div className="inline-block items-center flex justify-center w-[136px] h-[50px] bg-green-400 border-r-[10px] rounded-r-lg border-r-green-400">
+            <div className="inline-block items-center flex justify-center w-[136px] h-[50px] bg-indigo-400 border-r-[10px] rounded-r-lg border-r-indigo-400">
               <p className="font-bold text-white font-mono text-[20px]">
                 ${productInfo.price}
               </p>
@@ -49,7 +55,10 @@ export default function ProductInfo() {
             </p>
           </div>
           <div className="mt-[25px]">
-            <button className="w-[207px] h-[50px] bg-rose-600  font-bold text-white rounded-[8px]">
+            <button
+              onClick={() => onAddtoCart(productInfo)}
+              className="w-[207px] h-[50px] bg-rose-600  font-bold text-white rounded-[8px]"
+            >
               Add to Cart
             </button>
           </div>

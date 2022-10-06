@@ -90,13 +90,13 @@ export default function Home() {
           ?.map((products, i) => {
             return (
               <div
-                className="mt-auto bg-white text-black border-2 py-0 p-[15px] border-b-2 border-gray-350 h-[346px] rounded-md "
+                className="mt-auto bg-white text-black border-2 py-0 p-[15px] border-b-2 border-gray-350 h-[400px] rounded-md"
                 onClick={() => onDetailClick(products.id)}
               >
                 <div className="w-full bg-white h-[65%]  border-b-2  border-gray-250 flex justify-center duration-300 hover:scale-x-110 hover:scale-y-110 shadow hover:shadow-black rounded-md">
                   <img src={products.image} alt="clothes" />
                 </div>
-                <div className="h-[30%]">
+                <div className="">
                   <h1 className="font-bold font-mono">{products.title}</h1>
                   <h1 className="font-roboto font-bold ">$ {products.price}</h1>
                   <h1 className="font-roboto text-gray-400  text-[13px]">
