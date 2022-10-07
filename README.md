@@ -1,5 +1,12 @@
 # Fake Store 
+# To use this app
+First, Clone this repository or extract this file 
 
+Then, npm install to install all dependencies 
+
+Finally, npm start to try this demo.
+
+Hopefully, you enjoy this app.
 
 
 ## Getting started

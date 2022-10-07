@@ -4,7 +4,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import { googleProvider, auth } from '../services/firebase';
 import { useDispatch, useSelector } from 'react-redux';
-import clothes from '../assets/images/img_550774.png';
+import logo from '../assets/images/icon.jpg';
 import { setName } from './headerSlice';
 import { setUser } from '../features/Login/LoginSlice';
 import { useState } from 'react';
@@ -19,7 +19,7 @@ function classNames(...classes) {
 
 export default function Header() {
   const navigate = useNavigate();
-  const cartItems = useSelector((state) => state.cart.cartItems);
+  const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user.user);
   const name = useSelector((state) => state.search.name);
   console.log(name);
@@ -64,8 +64,8 @@ export default function Header() {
               }}
             >
               <img
-                className="h-10 w-[50px] mx-3 sm:h-10 object-contain "
-                src={clothes}
+                className="w-[50%] p-[2px] object-contain rounded-xl lg:w-[50%] xs:w-[100px] md:w-[100px] sm:w-[100px] "
+                src={logo}
                 alt=""
               />
             </button>
@@ -110,7 +110,7 @@ export default function Header() {
               className="whitespace-nowrap hover:text-gray-900 relative"
             >
               <span className="absolute translate-x-[1px] translate-y-[-10px] py-[-3px] px-[6px] rounded-[30%] bg-red-600 text-white font-bold">
-                {cartItems.length}
+                {!cart.cartTotalItems ? null : cart.cartTotalItems}
               </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +118,7 @@ export default function Header() {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-[35px] h-[35px] stroke-indigo-700 fill-indigo-400 hover:bg-indigo-500 active:rounded-[40%] focus:outline-offset-2 focus:ring focus:ring-indigo-400"
+                className="w-[35px] h-[35px] stroke-indigo-600 fill-indigo-400 hover:stroke-indigo-500 active:rounded-[40%] focus:outline-offset-2 focus:ring focus:ring-indigo-400"
               >
                 <path
                   strokeLinecap="round"
