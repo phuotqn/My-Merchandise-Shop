@@ -1,12 +1,12 @@
-import img from '../assets/images/img_550774.png';
+import logo from '../assets/images/icon.jpg';
 export default function Footer() {
   return (
     <footer className="grid w-auto items-center border-y-[2px] m-auto mt-[26px] border-x-gray-500 lg:bg-white lg:text-black lg:border-y-[2px] lg:m-auto lg:mt-[26px] lg:border-x-gray-500 lg:w-[1329px] lg:min-w-[1329px] ">
       <div className="grid grid-cols-4 items-center justify-center md:grid grid-cols-4 md:gap-[30px] md:p-[30px] ">
         <img
-          src={img}
+          src={logo}
           alt="logo"
-          className="w-[30%] border-[5px] ml-[2px] p-[2px] border-black bg-white rounded-xl justify-center"
+          className="w-[50%] p-[2px]  rounded-xl justify-center object-contain "
         />
         <div className="text-center font-mono">
           <h1 className="text-[20px] font-bold">About Us</h1>
