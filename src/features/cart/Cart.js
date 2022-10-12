@@ -120,7 +120,7 @@ export default function Cart({ openCart, setOpenCart }) {
                                 {cart.cartTotalItems > 1 ? 'Items' : 'Item'}
                               </h2>
                             </div>
-                            <div className="flex mt-10 mb-5">
+                            <div className="flex mt-10 mb-5 xs:hidden">
                               <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">
                                 Product Details
                               </h3>
@@ -136,8 +136,8 @@ export default function Cart({ openCart, setOpenCart }) {
                             </div>
                             {cart.cartItems?.map((items) => {
                               return (
-                                <div className="flex items-center justify-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                                  <div className="flex w-2/5">
+                                <div className="md:flex md:items-center md:justify-center hover:bg-gray-100 md:-mx-8 md:px-6 md:py-5 ">
+                                  <div className="flex md:w-2/5 xs:w-auto xs:flex ">
                                     <div className="w-[80%] flex justify-center p-2">
                                       <img
                                         className="h-24 object-fit"
@@ -145,7 +145,7 @@ export default function Cart({ openCart, setOpenCart }) {
                                         alt="item"
                                       />
                                     </div>
-                                    <div className="flex flex-col justify-between w-[90%]">
+                                    <div className="flex flex-col justify-between md:w-[90%]">
                                       <span className="font-bold text-sm hover hover:text-teal-500 cursor-pointer">
                                         {items.title}
                                       </span>
@@ -259,8 +259,8 @@ export default function Cart({ openCart, setOpenCart }) {
                                     className="w-5 h-5 translate-x-[-5px]"
                                   >
                                     <path
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
                                       d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
                                     />
                                   </svg>

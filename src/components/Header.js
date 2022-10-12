@@ -5,9 +5,10 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import { googleProvider, auth } from '../services/firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import logo from '../assets/images/icon.jpg';
+import { debounce } from 'lodash';
 import { setName } from './headerSlice';
 import { setUser } from '../features/Login/LoginSlice';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 // Import Modal Login
 import ModalLogin from '../features/Login/ModalLogin';
 import { useNavigate } from 'react-router-dom';
@@ -29,6 +30,7 @@ export default function Header() {
     dispatch(setName(e.target.value.toLowerCase()));
     console.log(e.target.value);
   };
+  const debounceChange = useCallback(debounce(onInputChage, 900), []);
   //Login with Google
 
   // Open Modal
@@ -100,7 +102,7 @@ export default function Header() {
                 id="default-search"
                 className="block p-4 pl-10 font-bold text-[15px] w-full text-sm text-gray-900 bg-white-50 rounded-lg border  focus:ring-blue-500  white:bg-gray-700 border-indigo-600 placeholder-gray-400 text-black "
                 placeholder="Search..."
-                onChange={onInputChage}
+                onChange={debounceChange}
               ></input>
             </div>
           </div>
